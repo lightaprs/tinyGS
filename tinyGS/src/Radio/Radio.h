@@ -30,6 +30,10 @@
 
 extern Status status;
 
+//LightTracker Plus Radio Module
+#define LORA_VCC_PIN 21
+#define LORA_RXEN 42 
+#define LORA_TXEN 14
 
 enum RadioModelNum {
   RADIO_SX1278 = 1,

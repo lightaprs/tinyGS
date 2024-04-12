@@ -28,7 +28,8 @@ const char BOARD_NAMES[][BOARD_NAME_LENGTH] PROGMEM =
 {
   #if CONFIG_IDF_TARGET_ESP32S3
   "433MHz HELTEC LORA32 V3",
-  "Custom ESP32-S3 433MHz SX1278", 
+  "Custom ESP32-S3 433MHz SX1278",
+  "433MHz LightTracker Plus V1 SX1268",
   #elif CONFIG_IDF_TARGET_ESP32C3  
   "433MHz HELTEC LORA32 HT-CT62 SX1262",
   "Custom ESP32-C3 433MHz SX1278" ,
@@ -61,7 +62,7 @@ const char BOARD_NAMES[][BOARD_NAME_LENGTH] PROGMEM =
 constexpr auto BOARD_LENGTH = 3;
 
 #if CONFIG_IDF_TARGET_ESP32S3
-const char BOARD_VALUES[][BOARD_LENGTH] PROGMEM = {"0", "1" };
+const char BOARD_VALUES[][BOARD_LENGTH] PROGMEM = {"0", "1", "2"};
 #elif CONFIG_IDF_TARGET_ESP32C3
 const char BOARD_VALUES[][BOARD_LENGTH] PROGMEM = {"0", "1"  };
 #else 
@@ -80,5 +81,5 @@ const char ADVANCED_CONFIG_SCRIPT[] PROGMEM =
     "function editElementDict(ed){if (current_ctrl===null){var ph=ed.getAttribute('placeholder'); var dstring = ed.value!='' ? ed.value : ph; if(dstring !== ''){ current_id=ed.id; var dict = JSON.parse(dstring); var tblhtml = '<div id=""dt-' + current_id + '"">' + dictTable(dict) + '<input type=""button"" value=""Done ' + current_id + '"" onclick=""tableDoneHandler()"" style=""height:35px;width:100px;background-color:lightblue;""></div>'; ed.insertAdjacentHTML('afterend', tblhtml); current_ctrl=ed; } } }"
     "var current_id, current_ctrl=null; window.addEventListener('load', function() {setup_click('board_template'); setup_click('modem_startup');});";
 const char IOTWEBCONF_WORLDMAP_SCRIPT[] PROGMEM  = "var wmx=null,wmt;function wmf(p){var sp,mc,gs,lp;clearTimeout(wmt);wmx=new XMLHttpRequest();wmx.onreadystatechange=function() {if(wmx.readyState==4&&x.status==200){var wma=wmx.responseText;var wmp = wma.split(',');sp=document.getElementById('wmsatpos');sp.setAttribute('cx', wmp[0]);sp.setAttribute('cy', wmp[1]);mc=document.getElementById('modemconfig');for(let r=0;r<6;r++){mc.rows[r].cells[1].innerHTML=wmp[r+2]};if(wmp[3]=='LoRa'){mc.rows[3].cells[0].innerHTML='Spreading Factor ';mc.rows[4].cells[0].innerHTML='Coding Rate ';}else{mc.rows[3].cells[0].innerHTML='Bitrate ';mc.rows[4].cells[0].innerHTML='Frequency dev ';};gs=document.getElementById('gsstatus');for(let r=0;r<6;r++){gs.rows[r].cells[1].innerHTML=wmp[r+8];};lp=document.getElementById('lastpacket');for(let r=0;r<4;r++){lp.rows[r].cells[1].innerHTML=wmp[r+14];};lp.rows[4].cells[0].innerHTML=wmp[18];}};wmx.open('GET','wm',true);wmx.send();wmt=setTimeout(wmf,5000);return false;}window.addEventListener('load', wmf);";
-const char IOTWEBCONF_CONFIG_STYLE_INNER[] PROGMEM = " fieldset[id='Board config'] div:nth-of-type(3) ~ div { display:none}";
+const char IOTWEBCONF_CONFIG_STYLE_INNER[] PROGMEM = " fieldset[id='Board config'] div:nth-of-type(6) ~ div { display:none}";
 

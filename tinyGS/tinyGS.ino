@@ -136,9 +136,20 @@ void setup()
   setCpuFrequencyMhz(240);
 #endif
   Serial.begin(115200);
-  delay(100);
+  delay(5000);
   Log::console(PSTR("TinyGS Version %d - %s"), status.version, status.git_version);
   Log::console(PSTR("Chip  %s - %d"),  ESP.getChipModel(),ESP.getChipRevision());
+
+//LightTracker Plus
+#if CONFIG_IDF_TARGET_ESP32S3
+    pinMode(LORA_VCC_PIN, OUTPUT);
+    pinMode(LORA_TXEN, OUTPUT);
+    pinMode(LORA_RXEN, OUTPUT);
+    delay(100);
+    digitalWrite(LORA_VCC_PIN, HIGH); // Enable LoRa Radio Module
+    Log::console("LightTracker Plus Radio Module Pin Setup Completed\n");
+#endif
+
   configManager.setWifiConnectionCallback(wifiConnected);
   configManager.setConfiguredCallback(configured);
   configManager.init();
@@ -169,7 +180,7 @@ void setup()
 
 void loop() {  
   configManager.doLoop();
-  if (configManager.isFailSafeActive())
+  /**  if (configManager.isFailSafeActive())
   {
     static bool updateAttepted = false;
     if (!updateAttepted && configManager.isConnected()) {
@@ -185,6 +196,7 @@ void loop() {
 
   ArduinoOTA.handle();
   handleSerial();
+  */
 
   if (configManager.getState() < 2) // not ready or not configured
   {
