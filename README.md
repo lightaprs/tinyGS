@@ -1,50 +1,16 @@
+# TinyGS for LightTracker Plus
+
+This is an development and test repo for [LightTracker Plus](https://github.com/lightaprs/LightTracker-Plus-1.0). You have one and want to install TinyGS you can is this repo. Please check out [Wiki](https://github.com/lightaprs/tinyGS/wiki) page for how to install custom firmware and configure it.
+
 <p align="center">
 <img src="/doc/images/TinyGS_logo.png" width="600">
 </p>
 
 TinyGS is an open network of Ground Stations distributed around the world to receive and operate LoRa satellites, weather probes and other flying objects, using cheap and versatile modules.
 
-# Hardware
-
-This project is based on ESP32 boards and currently it is compatible with sx126x and sx127x LoRa módules but we plan to support more radio módules in the future.
-
-Currently we are officially supporting the following proven LoRa boards:
-
-- **Heltec WiFi LoRa 32 V1 (433MHz &amp; 863-928MHz versions)**
-- **Heltec WiFi LoRa 32 V2 (433MHz &amp; 863-928MHz versions)**
-- **TTGO LoRa32 V1 (433MHz &amp; 868-915MHz versions)**
-- **TTGO LoRa32 V2 (433MHz &amp; 868-915MHz versions)**
-- **TTGO LoRa32 V2 (Manually swapped SX1267 to SX1278)**
-- **T-BEAM + OLED (433MHz &amp; 868-915MHz versions)**
-- **T-BEAM V1.0 + OLED**
-- **FOSSA 1W Ground Station (433MHz &amp; 868-915MHz versions)**
-- **ESP32 dev board + SX126X with crystal (Custom build, OLED optional)**
-- **ESP32 dev board + SX126X with TCXO (Custom build, OLED optional)**
-- **ESP32 dev board + SX127X (Custom build, OLED optional)**
-- **ESP32-S3 150–960Mhz - HELTEC LORA32 V3 SX1262**
-- **ESP32-S3 433Mhz Custom ESP32-S3 433MHz SX1278**
-
-However, any ESP32 board with sx126x or sx127x módule can be configured using templates. You can find more info about them [here](https://github.com/G4lile0/tinyGS/wiki/Board-Templates).
-
-# Install
-
-------
-
-#### Use our brand new web installer to setup your board for first time. Just go to https://installer.tinygs.com and follow the instructions there
-
------
-
-The first time you flash your board you can use the [web installer](https://installer.tinygs.com) using Google Chrome web browser on Linux, Windows or MacOS. Follow instructions there.
-
-You can also download the latest [release](https://github.com/G4lile0/tinyGS/releases) and flash it with PlatformIO. If you dont know PlatformIO here you have our [PlatformIO guide](https://github.com/G4lile0/tinyGS/wiki/Platformio).
-
-Later you can update your Ground Station via [local web OTA or auto update method](https://github.com/G4lile0/tinyGS/wiki/OTA-Update).
-
-You can also use Arduino IDE, but is a longer and hard path, because you need to install all dependencies. [Arduino guide](https://github.com/G4lile0/tinyGS/wiki/Arduino-IDE)
-
 # Configuration
 
-Check our wiki [configuration page](https://github.com/G4lile0/tinyGS/wiki/Ground-Station-configuration)
+Check our [Wiki](https://github.com/lightaprs/tinyGS/wiki)
 
 # Main data website
 
